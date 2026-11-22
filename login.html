@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login - Car Sales Management System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- Glow shapes -->
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+
+    <main class="login-container">
+      <div class="admin-card">
+        <!-- Security Shield Icon -->
+        <div class="shield-badge">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+          </svg>
+        </div>
+
+        <div class="card-header">
+          <span class="portal-tag">PORTAL ACCESS</span>
+          <h1 class="page-heading">ADMIN LOGIN</h1>
+          <div class="title-bar"></div>
+          <p class="heading-sub">Sign in with authorized administrative credentials to manage showroom inventory and enquiries</p>
+        </div>
+
+        <form class="login-form" id="adminLoginForm" onsubmit="handleAdminLogin(event)">
+          <div class="form-group">
+            <label for="adminUsername">Username:</label>
+            <div class="input-box">
+              <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+              <input type="text" id="adminUsername" placeholder="Enter admin username" required value="admin">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="adminPassword">Password:</label>
+            <div class="input-box">
+              <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+              <input type="password" id="adminPassword" placeholder="Enter password" required value="admin123">
+              <button type="button" class="toggle-eye" onclick="togglePassVisibility()">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="demo-hint">
+            <span>Demo: <strong>admin</strong> / <strong>admin123</strong></span>
+          </div>
+
+          <button type="submit" class="login-btn" id="loginBtn">
+            <span>LOGIN</span>
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </button>
+        </form>
+
+        <div class="client-portal-return">
+          <a href="../client/index.html">&larr; Return to Customer Showroom</a>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="admin-footer">
+      <div class="footer-links">
+        <a href="dashboard.html">HOME</a>
+        <span class="sep">|</span>
+        <a href="cars.html">CARS</a>
+        <span class="sep">|</span>
+        <a href="../client/contact.html">CONTACT</a>
+      </div>
+      <p class="copyright">&copy; 2024 CAR SALES MANAGEMENT SYSTEM</p>
+    </footer>
+  </div>
+
+  <script>
+    function togglePassVisibility() {
+      const pass = document.getElementById('adminPassword');
+      pass.type = pass.type === 'password' ? 'text' : 'password';
+    }
+
+    function handleAdminLogin(e) {
+      e.preventDefault();
+      const btn = document.getElementById('loginBtn');
+      btn.innerHTML = '<span>Verifying...</span>';
+      setTimeout(() => {
+        window.location.href = 'dashboard.html';
+      }, 600);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Car Sales Management System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <!-- Admin Navbar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="nav-left">
+        <a href="dashboard.html" class="nav-brand">
+          <div class="brand-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.85 7h10.29l1.04 3H5.81l1.04-3zM19 17H5v-4.66l.12-.34h13.77l.11.34V17z"/>
+              <circle cx="7.5" cy="14.5" r="1.5"/>
+              <circle cx="16.5" cy="14.5" r="1.5"/>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-name">CAR SALES</span>
+            <span class="brand-sub">MANAGEMENT SYSTEM</span>
+          </div>
+        </a>
+        <div class="admin-badge">ADMIN</div>
+      </div>
+
+      <button class="mobile-toggle" aria-label="Toggle navigation" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="dashboard.html" class="nav-link active">HOME</a>
+        <a href="cars.html" class="nav-link">CARS</a>
+        <a href="enquiries.html" class="nav-link">ENQUIRIES</a>
+        <a href="login.html" class="nav-link logout-btn">LOGOUT</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Dashboard Main Content -->
+  <main class="dashboard-main">
+    <div class="container">
+      
+      <!-- Welcome Banner -->
+      <div class="dashboard-header">
+        <div class="header-text">
+          <h1 class="page-title">ADMIN DASHBOARD</h1>
+          <div class="header-line"></div>
+          <p class="page-subtitle">Showroom overview & active performance metrics</p>
+        </div>
+
+        <div class="quick-header-actions">
+          <a href="add-car.html" class="action-btn-primary">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 5v14M5 12h14"/>
+            </svg>
+            <span>Add New Car</span>
+          </a>
+          <a href="../client/index.html" target="_blank" class="action-btn-secondary">
+            <span>View Client Site &rarr;</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Stats Grid (Matches Canva: Total Cars: 10, Total Enquiries: 5) -->
+      <div class="stats-grid">
+        <!-- Stat Card 1: Total Cars -->
+        <div class="stat-card" onclick="window.location.href='cars.html'">
+          <div class="card-top">
+            <h2 class="stat-label">Total Cars:</h2>
+            <div class="stat-icon car-icon-bg">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+                <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.85 7h10.29l1.04 3H5.81l1.04-3zM19 17H5v-4.66l.12-.34h13.77l.11.34V17z"/>
+                <circle cx="7.5" cy="14.5" r="1.5"/>
+                <circle cx="16.5" cy="14.5" r="1.5"/>
+              </svg>
+            </div>
+          </div>
+          <div class="stat-number-wrapper">
+            <span class="stat-value" id="countCars">10</span>
+          </div>
+          <div class="card-footer-info">
+            <span class="trend-badge positive">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+              +2 this month
+            </span>
+            <span class="card-link-text">Manage inventory &rarr;</span>
+          </div>
+        </div>
+
+        <!-- Stat Card 2: Total Enquiries -->
+        <div class="stat-card" onclick="window.location.href='enquiries.html'">
+          <div class="card-top">
+            <h2 class="stat-label">Total Enquiries:</h2>
+            <div class="stat-icon enq-icon-bg">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
+            </div>
+          </div>
+          <div class="stat-number-wrapper">
+            <span class="stat-value" id="countEnq">5</span>
+          </div>
+          <div class="card-footer-info">
+            <span class="trend-badge alert">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              2 require reply
+            </span>
+            <span class="card-link-text">Review customer leads &rarr;</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Shortcuts Section -->
+      <section class="quick-overview-section">
+        <h3 class="section-title">Quick Management Actions</h3>
+        <div class="shortcuts-grid">
+          
+          <a href="cars.html" class="shortcut-box">
+            <div class="shortcut-icon" style="background: #e0e7ff; color: #4338ca;">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7"/>
+                <rect x="14" y="3" width="7" height="7"/>
+                <rect x="14" y="14" width="7" height="7"/>
+                <rect x="3" y="14" width="7" height="7"/>
+              </svg>
+            </div>
+            <div class="shortcut-text">
+              <h4>Showroom Inventory</h4>
+              <p>Update car prices, specs, and stock status</p>
+            </div>
+          </a>
+
+          <a href="add-car.html" class="shortcut-box">
+            <div class="shortcut-icon" style="background: #dcfce7; color: #15803d;">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="12" y1="8" x2="12" y2="16"/>
+                <line x1="8" y1="12" x2="16" y2="12"/>
+              </svg>
+            </div>
+            <div class="shortcut-text">
+              <h4>Add New Vehicle</h4>
+              <p>Publish a new car listing with photo upload</p>
+            </div>
+          </a>
+
+          <a href="enquiries.html" class="shortcut-box">
+            <div class="shortcut-icon" style="background: #fef3c7; color: #b45309;">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+            </div>
+            <div class="shortcut-text">
+              <h4>Customer Inquiries</h4>
+              <p>Contact leads regarding BMW, Audi & Toyota</p>
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="admin-footer">
+    <div class="footer-container">
+      <div class="footer-links">
+        <a href="dashboard.html" class="active">HOME</a>
+        <span class="sep">|</span>
+        <a href="cars.html">CARS</a>
+        <span class="sep">|</span>
+        <a href="../client/contact.html">CONTACT</a>
+      </div>
+      <p class="copyright">&copy; 2024 CAR SALES MANAGEMENT SYSTEM</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('navMenu');
+      menu.classList.toggle('active');
+    }
+
+    // Lively number counter animation
+    function animateValue(id, start, end, duration) {
+      const obj = document.getElementById(id);
+      let startTimestamp = null;
+      const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        obj.innerHTML = Math.floor(progress * (end - start) + start);
+        if (progress < 1) {
+          window.requestAnimationFrame(step);
+        }
+      };
+      window.requestAnimationFrame(step);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      animateValue("countCars", 0, 10, 800);
+      animateValue("countEnq", 0, 5, 800);
+    });
+  </script>
+</body>
+</html>

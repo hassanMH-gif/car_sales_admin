@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Cars - Car Sales Management System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="cars.css">
+</head>
+<body>
+  <!-- Admin Navbar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="nav-left">
+        <a href="dashboard.html" class="nav-brand">
+          <div class="brand-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.85 7h10.29l1.04 3H5.81l1.04-3zM19 17H5v-4.66l.12-.34h13.77l.11.34V17z"/>
+              <circle cx="7.5" cy="14.5" r="1.5"/>
+              <circle cx="16.5" cy="14.5" r="1.5"/>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-name">CAR SALES</span>
+            <span class="brand-sub">MANAGEMENT SYSTEM</span>
+          </div>
+        </a>
+        <div class="admin-badge">ADMIN</div>
+      </div>
+
+      <button class="mobile-toggle" aria-label="Toggle navigation" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="dashboard.html" class="nav-link">HOME</a>
+        <a href="cars.html" class="nav-link active">CARS</a>
+        <a href="enquiries.html" class="nav-link">ENQUIRIES</a>
+        <a href="login.html" class="nav-link logout-btn">LOGOUT</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="manage-page">
+    <div class="container">
+      
+      <div class="page-header">
+        <h1 class="page-title">MANAGE CARS</h1>
+        <div class="header-line"></div>
+        <p class="page-subtitle">Update vehicle pricing, specifications, and showroom availability</p>
+      </div>
+
+      <!-- Cars Table / Cards List -->
+      <div class="cars-manage-list" id="carsList">
+        
+        <!-- Car Item 1: BMW 3 Series -->
+        <div class="car-manage-item" id="car-1">
+          <div class="item-left">
+            <img src="images/bmw.jpg" alt="BMW 3 Series" class="car-thumb-small">
+            <div class="item-text">
+              <span class="car-name">BMW 3 Series</span>
+              <span class="car-tag">Model: 2024 &bull; Petrol</span>
+            </div>
+          </div>
+          <div class="item-price">
+            <span class="price-val">&#8377;20 Lakh</span>
+          </div>
+          <div class="item-actions">
+            <button class="edit-btn" onclick="openEditModal('BMW 3 Series', '₹20 Lakh')">EDIT</button>
+            <button class="delete-btn" onclick="deleteCar('car-1')">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="3 6 5 6 21 6"/>
+                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Car Item 2: Audi A4 -->
+        <div class="car-manage-item" id="car-2">
+          <div class="item-left">
+            <img src="images/audi.jpg" alt="Audi A4" class="car-thumb-small">
+            <div class="item-text">
+              <span class="car-name">Audi A4</span>
+              <span class="car-tag">Model: 2024 &bull; Petrol</span>
+            </div>
+          </div>
+          <div class="item-price">
+            <span class="price-val">&#8377;18 Lakh</span>
+          </div>
+          <div class="item-actions">
+            <button class="edit-btn" onclick="openEditModal('Audi A4', '₹18 Lakh')">EDIT</button>
+            <button class="delete-btn" onclick="deleteCar('car-2')">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="3 6 5 6 21 6"/>
+                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Car Item 3: Toyota Corolla -->
+        <div class="car-manage-item" id="car-3">
+          <div class="item-left">
+            <img src="images/toyota.jpg" alt="Toyota Corolla" class="car-thumb-small">
+            <div class="item-text">
+              <span class="car-name">Toyota Corolla</span>
+              <span class="car-tag">Model: 2024 &bull; Petrol</span>
+            </div>
+          </div>
+          <div class="item-price">
+            <span class="price-val">&#8377;15 Lakh</span>
+          </div>
+          <div class="item-actions">
+            <button class="edit-btn" onclick="openEditModal('Toyota Corolla', '₹15 Lakh')">EDIT</button>
+            <button class="delete-btn" onclick="deleteCar('car-3')">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="3 6 5 6 21 6"/>
+                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Car Item 4: Honda City -->
+        <div class="car-manage-item" id="car-4">
+          <div class="item-left">
+            <img src="images/honda.jpg" alt="Honda City" class="car-thumb-small">
+            <div class="item-text">
+              <span class="car-name">Honda City</span>
+              <span class="car-tag">Model: 2024 &bull; Petrol</span>
+            </div>
+          </div>
+          <div class="item-price">
+            <span class="price-val">&#8377;12 Lakh</span>
+          </div>
+          <div class="item-actions">
+            <button class="edit-btn" onclick="openEditModal('Honda City', '₹12 Lakh')">EDIT</button>
+            <button class="delete-btn" onclick="deleteCar('car-4')">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="3 6 5 6 21 6"/>
+                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Add Car Action Button -->
+      <div class="add-car-cta-wrap">
+        <a href="add-car.html" class="add-car-main-btn">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="16"/>
+            <line x1="8" y1="12" x2="16" y2="12"/>
+          </svg>
+          <span>ADD CAR</span>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Edit Car Modal -->
+  <div class="modal-backdrop" id="editModal">
+    <div class="modal-card">
+      <button class="close-modal" onclick="closeEditModal()">&times;</button>
+      <h3 class="modal-title">Edit Vehicle Details</h3>
+      <form id="editForm" onsubmit="saveEditCar(event)">
+        <div class="form-group">
+          <label>Car Name:</label>
+          <input type="text" id="editName" required>
+        </div>
+        <div class="form-group">
+          <label>Price:</label>
+          <input type="text" id="editPrice" required>
+        </div>
+        <button type="submit" class="save-btn">Save Changes</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast">
+    <span id="toastMsg">Vehicle updated successfully!</span>
+  </div>
+
+  <!-- Footer -->
+  <footer class="admin-footer">
+    <div class="footer-container">
+      <div class="footer-links">
+        <a href="dashboard.html">HOME</a>
+        <span class="sep">|</span>
+        <a href="cars.html" class="active">CARS</a>
+        <span class="sep">|</span>
+        <a href="../client/contact.html">CONTACT</a>
+      </div>
+      <p class="copyright">&copy; 2024 CAR SALES MANAGEMENT SYSTEM</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('navMenu');
+      menu.classList.toggle('active');
+    }
+
+    function openEditModal(name, price) {
+      document.getElementById('editName').value = name;
+      document.getElementById('editPrice').value = price;
+      document.getElementById('editModal').classList.add('active');
+    }
+
+    function closeEditModal() {
+      document.getElementById('editModal').classList.remove('active');
+    }
+
+    function saveEditCar(e) {
+      e.preventDefault();
+      closeEditModal();
+      showToast('Car details updated successfully!');
+    }
+
+    function deleteCar(id) {
+      if (confirm('Are you sure you want to remove this car from inventory?')) {
+        const item = document.getElementById(id);
+        item.style.transform = 'scale(0.95)';
+        item.style.opacity = '0';
+        setTimeout(() => {
+          item.remove();
+          showToast('Car removed from inventory.');
+        }, 300);
+      }
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toastMsg').innerText = msg;
+      toast.classList.add('active');
+      setTimeout(() => toast.classList.remove('active'), 3000);
+    }
+  </script>
+</body>
+</html>
